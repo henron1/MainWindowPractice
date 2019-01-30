@@ -58,7 +58,7 @@ public:
         {
             centreWithSize (300, 200);
             setVisible (true);
-            setBackgroundColour(Colours::blueviolet);
+            setBackgroundColour(Colours::palevioletred);
             setResizable(true,true);
             setUsingNativeTitleBar(true);
         }
