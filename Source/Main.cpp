@@ -56,7 +56,7 @@ public:
         Colours::lightgrey,
                                                     DocumentWindow::allButtons)
         {
-            centreWithSize (300, 200);
+            centreWithSize (300, 350);
             setVisible (true);
             setBackgroundColour(Colours::palevioletred);
             setResizable(true,true);
