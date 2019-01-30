@@ -25,6 +25,8 @@ public:
     void initialise (const String& commandLine) override
     {
         // Add your application's initialisation code here..
+        mainWindow = new MainWindow (getApplicationName());
+       
     }
 
     void shutdown() override
@@ -46,7 +48,33 @@ public:
         // this method is invoked, and the commandLine parameter tells you what
         // the other instance's command-line arguments were.
     }
+    
+    class MainWindow    : public DocumentWindow
+    {
+    public:
+        MainWindow (String name)  : DocumentWindow (name,
+        Colours::lightgrey,
+                                                    DocumentWindow::allButtons)
+        {
+            centreWithSize (300, 200);
+            setVisible (true);
+            setBackgroundColour(Colours::blueviolet);
+            setResizable(true,true);
+            setUsingNativeTitleBar(true);
+        }
+        void closeButtonPressed() override
+        {
+            JUCEApplication::getInstance()->systemRequestedQuit();
+        }
+    private:
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
+    };
+private:
+    ScopedPointer<MainWindow> mainWindow;
 };
+;
+
+
 
 //==============================================================================
 // This macro generates the main() routine that launches the app.
